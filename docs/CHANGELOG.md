@@ -2,6 +2,18 @@
 
 > **Purpose:** Record meaningful changes and milestones in the micaeldev personal website project.
 
+## [0.9.4] — 2026-09-03 — Iteration 2C: SEO Foundation
+
+### Added
+- Created `app/robots.ts` to natively generate `robots.txt` allowing all crawlers and linking to the sitemap.
+- Created `app/sitemap.ts` to natively generate `sitemap.xml` including only the 5 verified public routes (`/`, `/projects`, `/certifications`, `/about`, `/contact`).
+
+### Changed
+- Configured global `metadataBase` in `app/layout.tsx` to `https://micaeldev.vercel.app`.
+- Enhanced global metadata in `app/layout.tsx` with accurate OpenGraph tags, title templates, and an honest description reflecting the student developer identity without exaggeration.
+
+---
+
 ## [0.9.3] — 2026-09-03 — Iteration 2B.1: Authenticity & Micro Content Refinement
 
 ### Changed
