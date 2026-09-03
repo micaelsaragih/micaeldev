@@ -2,6 +2,79 @@
 
 > **Purpose:** Record meaningful changes and milestones in the micaeldev personal website project.
 
+## [0.9.3] — 2026-09-03 — Iteration 2B.1: Authenticity & Micro Content Refinement
+
+### Changed
+- Adjusted SmartQBank screenshot presentation via CSS cropping (`object-left-top`, `scale-125`) in `ProjectCard.tsx` to hide unverified metrics while preserving the original image asset.
+- Updated SIMPAI project description in `data/projects.ts` for factual accuracy, removing overly broad claims about academic writing quality.
+- Added explicit "Fokus:" label before project tags in `FeaturedProjectCard.tsx` and `ProjectCard.tsx` to accurately reflect them as focus areas rather than a formal technology stack.
+
+---
+
+## [0.9.2] — 2026-09-03 — Iteration 2B: Project Identity & Showcase
+
+### Added
+- Created `FeaturedProjectCard` component (`components/ui/FeaturedProjectCard.tsx`) for prominent presentation of the featured project (SIMPAI) with priority image loading, hierarchy badge, status indicator, and direct CTA link.
+- Created `ProjectCard` component (`components/ui/ProjectCard.tsx`) for non-featured projects with lazy-loaded screenshot previews, status indicators, verified technology tags, and live demo links.
+- Integrated authentic project screenshots into the UI: `/images/simpai.png`, `/images/smartqbank.png`, `/images/hmj.png`, `/images/sorting.png`.
+
+### Changed
+- Extended `Project` interface in `data/projects.ts` with `image`, `liveUrl`, and `featured` fields.
+- Updated project data in `data/projects.ts` to strictly reflect the 4 verified projects (SIMPAI, SmartQBank, Website HMJ Matematika UNIMED, Sorting Visualizer).
+- Redesigned homepage `FeaturedProjects` section (`components/sections/FeaturedProjects.tsx`) with clear hierarchy: prominent featured project card, grid of other projects, and link to `/projects`.
+- Upgraded dedicated `/projects` page (`app/projects/page.tsx`) into a complete showcase featuring the prominent featured card, other projects grid, and context on self-directed learning.
+
+### Preserved
+- Hero layout, photo frame, and visual identity approved in Iteration 2A and 2A.1.
+- Global navigation, typography, color palette, and layout primitives.
+- All other sections and routes (`/`, `/certifications`, `/about`, `/contact`).
+- Zero unverified claims, fabricated metrics, or speculative GitHub links.
+
+### Documentation
+- Recorded DD-044 (Project Identity & Showcase Architecture) in `docs/DECISIONS.md`.
+
+---
+
+## [0.9.1] — 2026-09-03 — Iteration 2A.1: Hero Micro Refinement
+
+### Changed
+- Modestly increased profile photo size on desktop (md: 300×370, lg: 360×440) for stronger visual anchor.
+- Increased navy readability gradient opacity from 7% to 12% for perceptible text contrast improvement.
+- Tightened Hero vertical padding (md: py-20, lg: py-24) and internal gaps to keep CTAs comfortably above fold.
+- Refined photo frame: slightly stronger blue glow (15% opacity, 50px spread) and thin primary-color border accent (10% opacity).
+
+### Verified
+- `npm run lint` — passed with zero errors and zero warnings.
+- `npm run build` — compiled successfully; all 5 routes prerendered as static content.
+
+---
+
+## [0.9.0] — 2026-09-03 — Iteration 2A: Hero & Visual Identity Refinement
+
+### Changed
+- Transformed Hero from single-column to two-column layout on desktop (≥ md breakpoint).
+- Left column retains all existing text content; right column displays the user's profile photo.
+- Mobile layout stacks text first, then photo below.
+
+### Added
+- Integrated user-provided profile photo (`/images/profile.jpg`) via Next.js `<Image>` component with `priority` flag for LCP optimization, responsive `sizes`, and meaningful alt text.
+- Profile photo frame uses `rounded-2xl`, `shadow-md`, and subtle blue glow from existing primary color token.
+- Subtle dark/navy radial gradient (`#0c1929` at ~7% opacity) behind the text column to improve readability against decorative gradient orbs.
+- Additional atmospheric gradient orb behind right column for depth (primary blue at 15% opacity, heavy blur).
+
+### Preserved
+- All existing verified Hero content (greeting, name, micaeldev tag, biography, interest badges, CTAs).
+- Existing blue/cyan gradient color system and all design tokens.
+- All 5 routes (`/`, `/projects`, `/certifications`, `/about`, `/contact`).
+- All other components, pages, and data files untouched.
+
+### Documentation
+- Recorded DD-043 (Hero Two-Column Layout & Profile Photo Integration) in `DECISIONS.md`.
+
+### Verified
+- `npm run lint` — passed with zero errors and zero warnings.
+- `npm run build` — compiled successfully; all 5 routes prerendered as static content.
+
 ---
 
 ## [0.8.0] — 2026-09-03

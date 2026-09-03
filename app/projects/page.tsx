@@ -1,48 +1,70 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/layout/Container";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
-import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
+import { FeaturedProjectCard } from "@/components/ui/FeaturedProjectCard";
+import { ProjectCard } from "@/components/ui/ProjectCard";
 import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Projects | micaeldev",
-  description: "Projek-projek yang pernah dan sedang dikerjakan oleh Micael Zecsen Saragih.",
+  description:
+    "Daftar projek yang pernah dan sedang dikerjakan oleh Micael Zecsen Saragih — mencakup aplikasi web, analisis dokumen berbasis AI, sistem antrean, dan simulasi algoritma.",
 };
 
 export default function ProjectsPage() {
+  const featuredProject = projects.find((p) => p.featured) || projects[0];
+  const otherProjects = projects.filter((p) => !p.featured);
+
   return (
     <main>
       <SectionWrapper>
         <Container>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            Projek
-          </h1>
-          <p className="mt-4 max-w-2xl leading-relaxed text-text-muted">
-            Beberapa projek yang pernah dan sedang saya kerjakan — sebagian
-            besar dibangun secara mandiri sebagai bagian dari proses belajar
-            dan eksplorasi teknologi.
-          </p>
+          {/* Page Header */}
+          <div className="max-w-2xl">
+            <h1 className="text-4xl font-bold tracking-tight text-text sm:text-5xl">
+              Projek
+            </h1>
+            <p className="mt-4 text-lg leading-relaxed text-text-muted">
+              Kumpulan projek nyata yang pernah dan sedang saya kerjakan. Sebagian
+              besar dibangun secara mandiri untuk memahami proses pengembangan
+              perangkat lunak secara langsung — dari perancangan hingga implementasi.
+            </p>
+          </div>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project) => (
-              <Card key={project.title} className="flex flex-col p-6">
-                <h2 className="text-lg font-semibold">{project.title}</h2>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-text-muted">
-                  {project.description}
-                </p>
-                {project.status && (
-                  <p className="mt-3 text-xs text-text-muted italic">
-                    {project.status}
-                  </p>
-                )}
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <Badge key={tag}>{tag}</Badge>
-                  ))}
-                </div>
-              </Card>
-            ))}
+          {/* Featured Project Section */}
+          <div className="mt-12 sm:mt-16">
+            <FeaturedProjectCard project={featuredProject} />
+          </div>
+
+          {/* Other Projects Section */}
+          <div className="mt-16 sm:mt-20">
+            <div className="max-w-xl">
+              <h2 className="text-2xl font-bold tracking-tight text-text sm:text-3xl">
+                Projek Lainnya
+              </h2>
+              <p className="mt-2 text-base text-text-muted">
+                Eksplorasi sistem antrean digital, website organisasi, dan simulasi visual algoritma.
+              </p>
+            </div>
+
+            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {otherProjects.map((project) => (
+                <ProjectCard key={project.title} project={project} />
+              ))}
+            </div>
+          </div>
+
+          {/* Approach Note */}
+          <div className="mt-16 rounded-[var(--radius-md)] border border-border bg-surface p-6 sm:p-8">
+            <h3 className="text-base font-semibold text-text">
+              Pendekatan Pembelajaran
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-text-muted">
+              Saya sering memilih membangun projek pembelajaran dan akademik secara mandiri
+              agar dapat memahami keseluruhan alur teknologi — mulai dari perancangan antarmuka,
+              integrasi logika dan API, hingga proses deployment. Setiap projek menjadi wadah
+              eksplorasi nyata untuk memperdalam pemahaman teknologi.
+            </p>
           </div>
         </Container>
       </SectionWrapper>

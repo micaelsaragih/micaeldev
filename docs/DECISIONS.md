@@ -787,6 +787,64 @@ Confirms the codebase meets all production quality standards and is fully ready 
 
 ---
 
+# Iteration 2A — Hero & Visual Identity Refinement
+
+## DD-043 — Hero Two-Column Layout & Profile Photo Integration
+
+**Status:** APPROVED
+
+**Decision:**
+
+Refined the Hero section into a two-column composition on desktop (≥ md breakpoint):
+
+- **Left column:** Existing text content (greeting, gradient name heading, `micaeldev` tag, biography, interest badges, CTAs). A subtle radial gradient using deep navy (`#0c1929`) at ~7% opacity behind the text area improves readability without introducing a visible dark rectangle or altering the light theme.
+- **Right column:** User-provided profile photo (`/images/profile.jpg`) displayed via Next.js `<Image>` component with `priority` flag for LCP optimization. Photo frame uses `rounded-2xl`, `shadow-md`, and a very subtle blue glow (`rgba(2, 132, 199, 0.12)`) derived from the existing primary color token.
+- **Mobile (< md):** Single column, text first, photo below at a comfortable size.
+- **Desktop (≥ md → ≥ lg):** Two-column grid with `grid-cols-[1fr_auto]`, photo progressively sized from 280×340 to 330×400.
+- An additional subtle atmospheric gradient orb was added behind the right column (primary blue at 15% opacity) for depth.
+
+No new dependencies were introduced. All existing verified content, design tokens, and color system were preserved.
+
+**Reason:**
+
+The user's profile photo needed natural integration into the Hero while improving text readability. The two-column layout gives the photo visual presence without overpowering the text content hierarchy. The subtle navy gradient enhances contrast against the existing decorative gradient orbs.
+
+**Related decisions:** DD-032, DD-037, DD-015.
+
+# Iteration 2B — Project Identity & Showcase
+
+## DD-044 — Project Identity & Showcase Architecture
+
+**Status:** APPROVED
+
+**Decision:**
+
+Established the project showcase presentation and data structure:
+1. **Four Verified Projects Scope**:
+   - SIMPAI — Sistem Pembimbing Artikel Ilmiah (Featured)
+   - SmartQBank — Sistem Antrean Bank Digital
+   - Website HMJ Matematika UNIMED
+   - Sorting Visualizer
+   Unverified projects (such as Website Absensi Gereja) were removed from the active projects showcase.
+2. **Visual Hierarchy (Featured vs. Other)**:
+   - SIMPAI is presented as the initial featured project using a visually prominent layout (`FeaturedProjectCard`) with a large screenshot preview (`aspect-[21/10]` / `aspect-[16/9]`), priority loading, hierarchy badge (`01 · Projek Unggulan`), status indicator, and direct CTA.
+   - Other projects are presented in a balanced responsive grid (`ProjectCard`) with `aspect-[16/10]` screenshots, status indicator, verified technology badges, and live demo links.
+3. **Authenticity Boundaries**:
+   - Only verified live demo URLs are linked; no speculative GitHub repositories or fabricated metrics/claims are included.
+   - Project statuses truthfully distinguish "Dalam Pengembangan" from "Projek Akademik".
+   - Technologies are restricted to verified domains without fabricated tech stacks.
+4. **Cohesive Page Experience**:
+   - Homepage (`FeaturedProjects.tsx`) provides a curated presentation with the featured card, 3 other project cards, and a navigation link to the full `/projects` page.
+   - Dedicated `/projects` route (`app/projects/page.tsx`) provides the complete project portfolio and context on self-directed learning.
+
+**Reason:**
+
+To transform the project portfolio into a credible, visual, and understandable presentation of real work without exaggerating accomplishments or resorting to generic templates.
+
+**Related decisions:** DD-023, DD-024, DD-025, DD-034, DD-038, DD-040.
+
+---
+
 # Current Open Decisions
 
 The following decisions are intentionally **not finalized yet**:
