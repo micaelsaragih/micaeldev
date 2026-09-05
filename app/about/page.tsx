@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
-import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
-import { skillGroups } from "@/data/skills";
 import {
   organizations,
   communities,
@@ -12,112 +11,134 @@ import {
 
 export const metadata: Metadata = {
   title: "About | micaeldev",
-  description: "Tentang Micael Zecsen Saragih — mahasiswa Ilmu Komputer di Universitas Negeri Medan.",
+  description:
+    "Mengenal lebih dekat Micael Zecsen Saragih: perjalanan belajar, fokus teknologi, hingga minat di luar kode.",
 };
 
 export default function AboutPage() {
   return (
     <main>
-      {/* Identity & Narrative */}
-      <SectionWrapper>
+      {/* 1. Introduction */}
+      <SectionWrapper className="pt-12 pb-16 md:pt-20">
         <Container>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight text-text sm:text-5xl">
             Tentang Saya
           </h1>
-
-          <div className="mt-8 grid gap-10 md:grid-cols-2">
-            <div className="space-y-5">
-              <p className="leading-relaxed text-text-muted">
-                Saya{" "}
-                <span className="font-medium text-text">
-                  Micael Zecsen Saragih
-                </span>
-                , mahasiswa{" "}
-                <span className="font-medium text-text">
-                  Matematika — Program Studi Ilmu Komputer
-                </span>{" "}
-                di Universitas Negeri Medan, saat ini semester 6.
-              </p>
-              <p className="leading-relaxed text-text-muted">
-                Ketertarikan saya terhadap teknologi sudah dimulai sejak kecil.
-                Meski awalnya akses terhadap perangkat terbatas, rasa ingin tahu
-                mendorong saya untuk terus belajar secara mandiri — melalui
-                handphone, materi online, dan eksperimen pribadi.
-              </p>
-              <p className="leading-relaxed text-text-muted">
-                Melalui proses seleksi SNBT, saya diterima di Program Studi
-                Ilmu Komputer UNIMED. Sejak saat itu, perjalanan saya terus
-                berkembang: membangun projek, mempelajari teknologi baru, dan
-                terlibat dalam berbagai kegiatan kampus.
-              </p>
-            </div>
-
-            <div className="space-y-5">
-              <p className="leading-relaxed text-text-muted">
-                Saya menikmati proses membangun sesuatu dari nol — memahami
-                cara kerja sistem, bukan sekadar menulis kode. Pendekatan ini
-                membantu saya tumbuh sebagai programmer yang lebih sadar
-                konsep, bukan sekadar menghafal sintaks.
-              </p>
-              <p className="leading-relaxed text-text-muted">
-                Di luar teknologi, saya percaya bahwa kemampuan komunikasi,
-                adaptasi, dan kepemimpinan sama pentingnya. Saya aktif di
-                organisasi kampus, terlibat sebagai panitia dan MC di berbagai
-                acara, serta berpartisipasi di komunitas yang membantu saya
-                berkembang secara personal.
-              </p>
-              <p className="leading-relaxed text-text-muted">
-                Saat ini saya sedang mempelajari{" "}
-                <span className="font-medium text-text">React</span> dan{" "}
-                <span className="font-medium text-text">Arduino</span>, sambil
-                terus meningkatkan kemampuan bahasa Inggris sebagai skill
-                internasional yang penting untuk masa depan.
-              </p>
-            </div>
+          <div className="mt-8 max-w-3xl space-y-6 text-lg leading-relaxed text-text-muted">
+            <p>
+              Halo! Saya{" "}
+              <span className="font-medium text-text">
+                Micael Zecsen Saragih
+              </span>
+              , mahasiswa program studi{" "}
+              <span className="font-medium text-text">Ilmu Komputer</span> di{" "}
+              <span className="font-medium text-text">
+                Universitas Negeri Medan
+              </span>{" "}
+              (Semester 6).
+            </p>
+            <p>
+              Saya menaruh minat besar pada ranah Software Engineering, dengan
+              fokus mengeksplorasi Web Development, AI/ML, Cybersecurity, dan
+              Data. Saya menikmati proses membangun sistem dari nol, memahami
+              fundamental di balik sebuah teknologi, dan terus mengasah diri
+              melalui pembelajaran mandiri.
+            </p>
           </div>
         </Container>
       </SectionWrapper>
 
-      {/* Technology & Skills */}
-      <SectionWrapper>
+      {/* 2. My journey into technology */}
+      <SectionWrapper className="bg-surface">
         <Container>
-          <h2 className="text-3xl font-semibold tracking-tight">
-            Teknologi &amp; Keahlian
+          <h2 className="text-3xl font-semibold tracking-tight text-text">
+            Perjalanan Teknologi
           </h2>
-          <div className="mt-8 grid gap-10 md:grid-cols-3">
-            {skillGroups.map((group) => (
-              <div key={group.label}>
-                <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
-                  {group.label}
-                </h3>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {group.items.map((item) => (
-                    <Badge key={item}>{item}</Badge>
-                  ))}
-                </div>
-              </div>
-            ))}
+          <div className="mt-8 grid gap-8 text-base leading-relaxed text-text-muted md:grid-cols-2">
+            <div className="space-y-5">
+              <p>
+                Rasa ingin tahu saya terhadap teknologi sudah muncul sejak kecil.
+                Saat itu, keterbatasan akses tidak menghalangi saya untuk
+                belajar. Sebuah handphone menjadi perangkat utama saya untuk
+                mulai mengeksplorasi dunia digital, membaca berbagai informasi,
+                dan memahami bagaimana teknologi bekerja secara konsep.
+              </p>
+              <p>
+                Tekad tersebut membawa saya belajar dengan giat hingga akhirnya
+                saya diterima di program studi Ilmu Komputer Universitas Negeri
+                Medan melalui jalur SNBT. Di kampus inilah ruang eksplorasi saya
+                menjadi jauh lebih luas.
+              </p>
+            </div>
+            <div className="space-y-5">
+              <p>
+                Saya mulai memanfaatkan fasilitas teknologi yang ada di kampus
+                untuk belajar lebih dalam. Seiring berjalannya waktu, saya
+                berhasil mengumpulkan dana untuk membeli sebuah laptop
+                bekas—sebuah langkah penting yang memungkinkan saya berlatih
+                coding secara konsisten dan mulai membangun projek-projek
+                personal.
+              </p>
+              <p>
+                Perjalanan ini mengajarkan saya bahwa persistensi adalah modal
+                utama. Kini, saya terus mengembangkan diri, bereksperimen dengan
+                kode, dan mempersiapkan diri menjadi seorang praktisi teknologi
+                yang adaptif.
+              </p>
+            </div>
           </div>
         </Container>
       </SectionWrapper>
 
-      {/* Community & Activities */}
+      {/* 3. What I am learning */}
       <SectionWrapper>
         <Container>
-          <h2 className="text-3xl font-semibold tracking-tight">
+          <h2 className="text-3xl font-semibold tracking-tight text-text">
+            Fokus Pembelajaran
+          </h2>
+          <div className="mt-8 max-w-3xl space-y-5 text-base leading-relaxed text-text-muted">
+            <p>
+              Sebagai pembelajar mandiri, saya selalu berusaha menyeimbangkan
+              antara teori akademis dan praktik langsung. Ketertarikan saya
+              mencakup berbagai area, mulai dari Web Development, pemanfaatan
+              AI/ML, konsep Cybersecurity, hingga pengolahan Data.
+            </p>
+            <p>
+              Saat ini, fokus utama saya adalah mendalami ekosistem{" "}
+              <span className="font-medium text-text">React</span> untuk
+              pengembangan antarmuka web modern, serta mengeksplorasi{" "}
+              <span className="font-medium text-text">Arduino</span> untuk
+              memahami interaksi perangkat keras dan lunak. Di samping
+              keterampilan teknis, saya juga secara aktif berupaya meningkatkan
+              kemampuan bahasa Inggris saya, menyadari pentingnya bahasa ini
+              sebagai pintu gerbang ilmu di dunia teknologi global.
+            </p>
+          </div>
+        </Container>
+      </SectionWrapper>
+
+      {/* 4. Community & activities */}
+      <SectionWrapper className="bg-surface">
+        <Container>
+          <h2 className="text-3xl font-semibold tracking-tight text-text">
             Komunitas &amp; Aktivitas
           </h2>
+          <p className="mt-4 max-w-2xl leading-relaxed text-text-muted">
+            Bagi saya, keterampilan komunikasi, kerja sama tim, dan kepemimpinan
+            sama pentingnya dengan menulis kode. Oleh karena itu, saya aktif
+            mengambil peran di berbagai ruang interaksi.
+          </p>
 
-          <div className="mt-8 grid gap-10 md:grid-cols-2">
+          <div className="mt-10 grid gap-10 md:grid-cols-2">
             <div className="space-y-4">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
                 Organisasi &amp; Komunitas
               </h3>
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {[...organizations, ...communities].map((org) => (
-                  <Card key={org.name} className="p-4" hover={false}>
-                    <h4 className="font-medium">{org.name}</h4>
-                    <p className="mt-1 text-sm text-text-muted">
+                  <Card key={org.name} className="p-5" hover={false}>
+                    <h4 className="font-medium text-text">{org.name}</h4>
+                    <p className="mt-1.5 text-sm leading-relaxed text-text-muted">
                       {org.description}
                     </p>
                   </Card>
@@ -127,16 +148,16 @@ export default function AboutPage() {
 
             <div className="space-y-4">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
-                Pengalaman &amp; Aktivitas
+                Pengalaman Peran
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-4 rounded-[var(--radius-md)] border border-border bg-bg p-5 shadow-sm">
                 {activityHighlights.map((item) => (
                   <li
                     key={item}
                     className="flex items-start gap-3 text-sm leading-relaxed text-text-muted"
                   >
                     <span
-                      className="mt-1.5 block h-2 w-2 flex-shrink-0 rounded-full bg-primary/40"
+                      className="mt-1.5 block h-2 w-2 flex-shrink-0 rounded-full bg-primary/60"
                       aria-hidden="true"
                     />
                     {item}
@@ -148,27 +169,50 @@ export default function AboutPage() {
         </Container>
       </SectionWrapper>
 
-      {/* Personal Interests */}
+      {/* 5. Beyond Code */}
       <SectionWrapper>
         <Container>
-          <h2 className="text-3xl font-semibold tracking-tight">
-            Minat Pribadi
+          <h2 className="text-3xl font-semibold tracking-tight text-text">
+            Di Luar Kode
           </h2>
-          <p className="mt-4 max-w-2xl leading-relaxed text-text-muted">
-            Di luar dunia teknologi, ada beberapa hal yang menjadi bagian dari
-            kehidupan dan identitas saya.
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-text-muted">
+            Dunia tidak selamanya tentang layar dan sintaks. Di luar aktivitas
+            teknologi, saya memiliki ketertarikan pada musik dan menikmati waktu
+            dengan bermain seruling (flute). Aktivitas ini menjadi ruang yang
+            tepat bagi saya untuk mengekspresikan diri, menjaga keseimbangan,
+            dan sekadar menikmati momen di luar rutinitas teknis.
           </p>
-          <div className="mt-6 flex flex-wrap gap-2">
-            {[
-              "Matematika",
-              "Calisthenics",
-              "Musik",
-              "Flute",
-              "Personal Development",
-              "English Learning",
-            ].map((interest) => (
-              <Badge key={interest}>{interest}</Badge>
-            ))}
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[var(--radius-md)] border border-border shadow-sm sm:col-span-2">
+              <Image
+                src="/images/seruling3.png"
+                alt="Micael bermain flute bersama ensemble musik"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 66vw"
+              />
+            </div>
+            <div className="grid grid-cols-2 gap-4 sm:col-span-2 sm:grid-cols-1 md:col-span-1 md:grid-cols-1">
+              <div className="relative aspect-square w-full overflow-hidden rounded-[var(--radius-md)] border border-border shadow-sm">
+                <Image
+                  src="/images/seruling1.png"
+                  alt="Micael bermain flute secara individu"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 33vw"
+                />
+              </div>
+              <div className="relative aspect-square w-full overflow-hidden rounded-[var(--radius-md)] border border-border shadow-sm">
+                <Image
+                  src="/images/seruling2.png"
+                  alt="Micael berpose memegang flute"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 33vw"
+                />
+              </div>
+            </div>
           </div>
         </Container>
       </SectionWrapper>

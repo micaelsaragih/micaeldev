@@ -2,6 +2,23 @@
 
 > **Purpose:** Record meaningful changes and milestones in the micaeldev personal website project.
 
+## [0.9.6] — 2026-09-05 — Iteration 2E: About, Personal Story & Beyond Code
+
+### Changed
+- Expanded the `/about` page into a structured, long-form personal narrative replacing the original concise format.
+- Integrated the "Beyond Code" section into the About page featuring a curated gallery of personal flute photographs (`seruling1.png`, `seruling2.png`, `seruling3.png`) using `next/image` in a responsive layout.
+- Restructured About page content into distinct sections: Introduction, Perjalanan Teknologi (Journey into Technology), Fokus Pembelajaran (Learning Focus), Komunitas & Aktivitas (Community & Activities), and Di Luar Kode (Beyond Code).
+- Utilized existing verified data from `data/community.ts` and grounded the narrative in documented personal history without exaggeration or fictionalization.
+
+## [0.9.5] — 2026-09-05 — Iteration 2D: Certifications Page
+
+### Added
+- Created `data/certifications.ts` with authentic, verified metadata extracted directly from existing PDF certificates in `public/certificates/`.
+- Implemented `CertificateCard.tsx` component in `components/ui/` to present certificates cleanly with category badges, titles, issuers, and external viewing links.
+
+### Changed
+- Replaced the "Segera Hadir" placeholder on the `/certifications` page with a functional layout utilizing the new `CertificateCard` component and data module.
+
 ## [0.9.4] — 2026-09-03 — Iteration 2C: SEO Foundation
 
 ### Added
