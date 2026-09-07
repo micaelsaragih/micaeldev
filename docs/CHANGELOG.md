@@ -2,6 +2,31 @@
 
 > **Purpose:** Record meaningful changes and milestones in the micaeldev personal website project.
 
+## [0.9.8] — 2026-09-07 — Iteration 2F.1: Hero Video Visibility & Overlay Refinement
+
+### Fixed
+- Fixed an issue where the background video was hidden by the `<section>`'s fallback background color due to CSS stacking context rules when using negative z-indices.
+
+### Changed
+- Moved the static fallback navy background color from the parent `<section>` to the video wrapper `div`.
+- Refined the navy overlay gradient from a near-opaque `90%` to a lighter `75% -> 25%` opacity gradient, dramatically improving the visibility of the underlying video motion and texture while preserving text contrast.
+
+---
+
+## [0.9.7] — 2026-09-07 — Iteration 2F: Hero Video Background
+
+### Added
+- Integrated `/videos/bg.mp4` as an autoplaying, looping, muted background video in the Hero section (`components/sections/Hero.tsx`).
+- Implemented a graceful static fallback for mobile devices and users with `prefers-reduced-motion` enabled.
+- Added a dark navy gradient overlay to ensure text and UI elements remain perfectly readable against the video background.
+
+### Changed
+- Converted Hero text colors (greeting, name, bio, buttons) to lighter shades (`text-white`, `text-slate-300`, `text-cyan-400`) to maintain high contrast over the new dark navy overlay.
+- Adjusted profile photo border and shadow opacity to remain visible against the darker background.
+- Preserved existing layout, typography, visual identity, and content hierarchy without introducing new dependencies or client-side React state.
+
+---
+
 ## [0.9.6] — 2026-09-05 — Iteration 2E: About, Personal Story & Beyond Code
 
 ### Changed

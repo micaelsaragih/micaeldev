@@ -8,21 +8,43 @@ import { interests } from "@/data/skills";
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
-      {/* Decorative background gradient orbs */}
+      {/* Background Layer: Static fallback color + Video */}
+      <div className="absolute inset-0 -z-30 bg-[#0c1929]">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="h-full w-full object-cover motion-reduce:hidden"
+          aria-hidden="true"
+        >
+          <source src="/videos/bg.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      {/* Navy Overlay Layer */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-32 right-0 h-[500px] w-[500px] rounded-full opacity-20 blur-3xl"
+        className="absolute inset-0 -z-20"
+        style={{
+          background: "linear-gradient(to right, rgba(12, 25, 41, 0.75) 0%, rgba(12, 25, 41, 0.25) 100%)",
+        }}
+      />
+      {/* Decorative background gradient orbs (adjusted for dark mode) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-32 right-0 -z-10 h-[500px] w-[500px] rounded-full opacity-20 blur-3xl"
         style={{ background: "var(--gradient-primary)" }}
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-40 -left-20 h-[400px] w-[400px] rounded-full opacity-10 blur-3xl"
+        className="pointer-events-none absolute -bottom-40 -left-20 -z-10 h-[400px] w-[400px] rounded-full opacity-10 blur-3xl"
         style={{ background: "radial-gradient(circle, #06b6d4, transparent)" }}
       />
       {/* Subtle atmospheric glow behind right column for depth */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-10 top-1/4 hidden h-[350px] w-[350px] rounded-full opacity-15 blur-3xl md:block"
+        className="pointer-events-none absolute -right-10 top-1/4 -z-10 hidden h-[350px] w-[350px] rounded-full opacity-20 blur-3xl md:block"
         style={{
           background: "radial-gradient(circle, #0284c7, transparent)",
         }}
@@ -45,10 +67,10 @@ export function Hero() {
               />
 
               {/* Greeting + Name */}
-              <p className="text-sm font-medium text-primary">
+              <p className="text-sm font-medium text-cyan-400">
                 Halo, saya
               </p>
-              <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl md:text-5xl lg:text-6xl">
+              <h1 className="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-5xl lg:text-6xl">
                 <span
                   className="bg-clip-text text-transparent"
                   style={{ backgroundImage: "var(--gradient-primary)" }}
@@ -56,14 +78,14 @@ export function Hero() {
                   Micael Zecsen Saragih
                 </span>
               </h1>
-              <p className="mt-2 text-lg font-medium text-text-muted sm:text-xl">
+              <p className="mt-2 text-lg font-medium text-slate-300 sm:text-xl">
                 micaeldev
               </p>
 
               {/* Academic + Career direction */}
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-text-muted sm:text-lg">
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
                 Mahasiswa Matematika — Program Studi Ilmu Komputer di{" "}
-                <span className="text-text">Universitas Negeri Medan</span>.
+                <span className="text-white font-medium">Universitas Negeri Medan</span>.
                 Tertarik membangun dan belajar di dunia software engineering
                 — satu projek, satu eksperimen pada satu waktu.
               </p>
@@ -81,7 +103,9 @@ export function Hero() {
                   <Button>Lihat Projek</Button>
                 </Link>
                 <Link href="/about">
-                  <Button variant="outline">Tentang Saya</Button>
+                  <Button variant="outline" className="text-white border-white/20 hover:bg-white/10 hover:border-white/40">
+                    Tentang Saya
+                  </Button>
                 </Link>
               </div>
             </div>
@@ -100,8 +124,8 @@ export function Hero() {
                   className="rounded-2xl object-cover object-top"
                   style={{
                     boxShadow:
-                      "var(--shadow-md), 0 0 50px rgba(2, 132, 199, 0.15)",
-                    border: "1px solid rgba(2, 132, 199, 0.1)",
+                      "0 20px 40px -10px rgba(0,0,0,0.5), 0 0 50px rgba(2, 132, 199, 0.25)",
+                    border: "1px solid rgba(2, 132, 199, 0.2)",
                   }}
                 />
               </div>

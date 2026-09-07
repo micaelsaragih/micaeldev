@@ -845,6 +845,27 @@ To transform the project portfolio into a credible, visual, and understandable p
 
 ---
 
+# Iteration 2F — Hero Video Background
+
+## DD-045 — Hero Video Architecture & Graceful Fallback
+
+**Status:** APPROVED
+
+**Decision:**
+
+The homepage Hero background is powered by a native HTML `<video>` element playing `/videos/bg.mp4` rather than a third-party React video player or heavy WebGL background. 
+1. **Performance & Reliability:** Uses native HTML attributes (`autoPlay`, `loop`, `muted`, `playsInline`) without introducing React state, `useEffect` hooks, or client-side JavaScript loops. The component remains a Server Component.
+2. **Accessibility & Graceful Fallback:** Implemented Tailwind's `motion-reduce:hidden` to automatically hide the video for users preferring reduced motion. The underlying `section` provides a static `#0c1929` navy background as a fallback for mobile devices that restrict autoplay or when reduced motion is enabled.
+3. **Contrast Preservation:** Added a dark navy gradient overlay (`linear-gradient`) and adjusted text colors to lighter variants (`text-white`, `text-slate-300`, `text-cyan-400`) to guarantee readability without compromising the underlying blue/cyan visual identity.
+
+**Reason:**
+
+Background video adds a premium, cinematic feel but often degrades accessibility and mobile performance. Using native HTML with CSS-only fallbacks achieves the requested visual enhancement while rigorously maintaining the project's minimal dependency principle and accessibility requirements.
+
+**Related decisions:** DD-015, DD-027, DD-029, DD-037.
+
+---
+
 # Current Open Decisions
 
 The following decisions are intentionally **not finalized yet**:
